@@ -1,0 +1,54 @@
+@model Pilot.Models.Dashboard
+
+<style>
+    body {
+        user-select: none;
+    }
+    .containerdiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+    }
+    .heading {
+        padding: 20px;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+    }
+    .data {
+        text-align: center;
+    }
+
+</style>
+
+
+<div class="containerdiv">
+    <div class="d1">
+        <h3 class="heading">Sales</h3>
+        <h2 class="data text-info">&#x20b9; @foreach(var i in Model.totalsales){@i}</h2>
+    </div>
+    <div class="d2">
+        <h3 class="heading">Profit</h3>
+        <h2 class="data text-success">&#x20b9; @Model.sumProfit</h2>
+    </div>
+    <div class="d3">
+        <h3 class="heading">Investment</h3>
+        <h2 class="data text-primary">&#x20b9; @Model.sumInvestment</h2>
+    </div>
+    <div class="d4">
+        <h3 class="heading">Top Selling</h3>
+        <h2 class="data text-warning">@foreach( var i in @Model.mostSelling ) {@i}</h2>
+    </div>
+    <div class="d5">
+        <h3 class="heading">To Order</h3>
+        <h2 class="data text-danger">@foreach( var i in @Model.toOrder ) {@i}</h2>
+    </div>
+</div>

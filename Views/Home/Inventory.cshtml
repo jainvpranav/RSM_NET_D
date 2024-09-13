@@ -1,0 +1,90 @@
+@{
+    ViewData["Title"] = "Inventory";
+}
+@model IEnumerable<Pilot.Models.Products>
+
+<style>
+    .form1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        max-width: 90%;
+    }
+    .form1 div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: center;
+        gap: 5px;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Inventory</h1>
+</div>
+<br />
+<div class="userform">
+    <form class="form1">
+        <div>
+            <label for="productName" class="text-dark">Product Name</label>
+            <input id="productName" placeholder="Enter name..." />
+        </div>
+        <div>
+            <label for="costPrice" class="text-dark">Cost Price</label>
+            <input id="costPrice" placeholder="Enter cost..." />
+        </div>
+        <div>
+            <label for="sellingPrice" class="text-dark">Selling Price</label>
+            <input id="sellingPrice" placeholder="Enter selling price..." />
+        </div>
+        <div>
+            <label for="typeofproduct" class="text-dark">Type of Product</label>
+            <input id="typeofproduct" placeholder="Enter type..." />
+        </div>
+        <div>
+            <label for="quantity" class="text-dark">Quantity</label>
+            <input id="quantity" placeholder="Enter quantity..." />
+        </div>
+        <div>
+            <label for="dealerId" class="text-dark">Dealer Id</label>
+            <input id="dealerId" placeholder="Enter Id..." />
+        </div>
+    </form>
+    <br />
+    <div class="text-center">
+        <button id="inventoryadd" class="btn btn-success">Add</button>
+        <button id="inventoryupdate" class="btn btn-primary">Update</button>
+        <button id="inventorydelete " class="btn btn-danger">Delete</button>
+    </div>
+</div>
+<br /><br />
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#ProductID</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">CostPrice</th>
+            <th scope="col">SellingPrice</th>
+            <th scope="col">TypeOfProduct</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">DealerId</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+{
+        <tr>
+            <td>@i.ProductId</td>
+            <td>@i.ProductName</td>
+            <td>@i.CostPrice</td>
+            <td>@i.SellingPrice</td>
+            <td>@i.TypeOfProduct</td>
+            <td>@i.Quantity</td>
+            <td>@i.DealerId</td>
+        </tr>
+}
+    </tbody>
+</table>

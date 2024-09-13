@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Customer";
+}
+@model IEnumerable<Pilot.Models.Customers>;
+    <div class="text-center">
+        <h1 class="display-4">Customer</h1>
+    </div>
+    <br />
+    <div class="userform">
+        <form method="POST">
+            @*<label asp-for="CustomerName" class="text-dark">Name</label>
+            <input asp-for="CustomerName" placeholder="Enter Name..." />
+            <label asp-for="Phnum" class="text-dark">Phone Number</label>
+            <input asp-for="Phnum" placeholder="Enter PhNum..." />*@
+            <label for="CustomerName" class="text-dark">Name</label>
+            <input for="CustomerName" placeholder="Enter Name..." />
+            <label for="Phnum" class="text-dark">Phone Number</label>
+            <input for="Phnum" placeholder="Enter PhNum..." />
+            <button asp-controller="Home" asp-action="Customeradd" class="btn btn-success">Add</button>
+            <button id="customerupdate" class="btn btn-primary">Update</button>
+            <button id="customerdelete " class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+    <br /><br />
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#CustomerID</th>
+                <th scope="col">CustomerName</th>
+                <th scope="col">PhNum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+{
+            <tr>
+                <td>@i.CustomerId</td>
+                <td>@i.CustomerName</td>
+                <td>@i.PhNum</td>
+            </tr>
+}
+        </tbody>
+    </table>

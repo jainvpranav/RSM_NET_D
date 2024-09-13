@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Sales";
+}
+@model IEnumerable<Pilot.Models.Sales>
+
+    <div class="text-center">
+        <h1 class="display-4">Sales</h1>
+    </div>
+    <br />
+    <div class="userform">
+        <form>
+            <label for="productId" class="text-dark">ProductId</label>
+            <input id="productId" placeholder="Enter ProductId..." />
+            <label for="customerId" class="text-dark">CustomerId</label>
+            <input id="customerId" placeholder="Enter CustomerId..." />
+            <label for="profit" class="text-dark">Profit</label>
+            <input id="profit" placeholder="Enter Profit..." />
+            <label for="modeofpayment" class="text-dark">ModeOfPayment</label>
+            <input id="modeofpayment" placeholder="Enter ModeOfPayment..." />
+        </form>
+        <br />
+        <div class="text-center">
+            <button id="salesadd" class="btn btn-success">Add</button>
+            <button id="salesupdate" class="btn btn-primary">Update</button>
+            <button id="salesdelete " class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+    <br /><br />
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#SaleID</th>
+                <th scope="col">ProductId</th>
+                <th scope="col">CustomerId</th>
+                <th scope="col">Profit</th>
+                <th scope="col">ModeOfPayment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+{
+            <tr>
+                <td>@i.SalesId</td>
+                <td>@i.ProductId</td>
+                <td>@i.CustomerId</td>
+                <td>@i.Profit</td>
+                <td>@i.ModeOfPayment</td>
+            </tr>
+}
+        </tbody>
+    </table>

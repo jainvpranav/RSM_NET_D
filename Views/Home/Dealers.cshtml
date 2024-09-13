@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Dealers";
+}
+@model IEnumerable<Pilot.Models.Dealers>
+
+    <div class="text-center">
+        <h1 class="display-4">Dealers</h1>
+    </div>
+    <br />
+    <div class="userform">
+        <form>
+            <label for="dealerName" class="text-dark">Name</label>
+            <input id="dealerName" placeholder="Enter Name..." />
+            <label for="dealerPhnum" class="text-dark">Phone Number</label>
+            <input id="dealerPhnum" placeholder="Enter PhNum..." />
+            <label for="dealerCity" class="text-dark">City</label>
+            <input id="dealerCity" placeholder="Enter city..." />
+            <button id="dealeradd" class="btn btn-success">Add</button>
+            <button id="dealerupdate" class="btn btn-primary">Update</button>
+            <button id="dealerdelete " class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+    <br /><br />
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#DealerID</th>
+                <th scope="col">DealerName</th>
+                <th scope="col">PhNum</th>
+                <th scope="col">City</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+{
+            <tr>
+                <td>@i.DealerId</td>
+                <td>@i.DealerName</td>
+                <td>@i.PhNum</td>
+                <td>@i.City</td>
+            </tr>
+}
+        </tbody>
+    </table>
